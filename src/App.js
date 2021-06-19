@@ -1,6 +1,13 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import { Navbar, Container, CardColumns, Card, Button } from "react-bootstrap";
+import {
+  Navbar,
+  Container,
+  CardColumns,
+  Card,
+  Button,
+  Modal,
+} from "react-bootstrap";
 import image from "./img/rick.png";
 
 function App() {
@@ -14,6 +21,23 @@ function App() {
         console.log(err.message);
       });
   }, []);
+
+  function showModal() {
+    <Modal.Dialog>
+      <Modal.Header closeButton>
+        <Modal.Title>Modal title</Modal.Title>
+      </Modal.Header>
+
+      <Modal.Body>
+        <p>Modal body text goes here.</p>
+      </Modal.Body>
+
+      <Modal.Footer>
+        <Button variant="secondary">Close</Button>
+        <Button variant="primary">Save changes</Button>
+      </Modal.Footer>
+    </Modal.Dialog>;
+  }
 
   return (
     <>
@@ -37,9 +61,7 @@ function App() {
               <Card.Body>
                 <Card.Title>{character.name}</Card.Title>
                 <Card.Text>{character.species}</Card.Text>
-                <Button variant="primary" href={character.url} target="_blank">
-                  More Info
-                </Button>
+                <Button variant="primary">More Info</Button>
               </Card.Body>
             </Card>
           ))}
